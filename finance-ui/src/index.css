@@ -6,25 +6,30 @@
   html {
     @apply antialiased;
   }
+
   body {
     @apply bg-paper text-ink font-body;
   }
+
   :focus-visible {
     outline: 2px solid #1F5C4E;
     outline-offset: 2px;
   }
+
   ::selection {
     background: #E4EEE9;
   }
 }
 
 @layer components {
+
   /* Signature element: the ledger tick — a short hairline + notch used
      as a divider/marker across nav, cards, and table rows. */
   .ledger-tick {
     position: relative;
     padding-left: 14px;
   }
+
   .ledger-tick::before {
     content: '';
     position: absolute;
@@ -64,5 +69,9 @@
 
   .label {
     @apply text-xs uppercase tracking-wider text-ink-soft font-medium mb-1 block;
+  }
+
+  .th-cell {
+    @apply text-xs uppercase tracking-wider text-ink-soft font-medium;
   }
 }

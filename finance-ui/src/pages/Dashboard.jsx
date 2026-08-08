@@ -15,8 +15,7 @@ import StatCard from '../components/StatCard.jsx'
 import { useAuth } from '../context/AuthContext.jsx'
 
 const formatCurrency = (n) =>
-  new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(n || 0)
-
+  new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n || 0)
 export default function Dashboard() {
   const { user } = useAuth()
   const [summary, setSummary] = useState(null)
@@ -76,9 +75,8 @@ export default function Dashboard() {
       <div>
         <p className="label ledger-tick">Net balance</p>
         <p
-          className={`font-display num text-5xl mt-1 ${
-            summary.netBalance >= 0 ? 'text-ledger-green' : 'text-ledger-brick'
-          }`}
+          className={`font-display num text-5xl mt-1 ${summary.netBalance >= 0 ? 'text-ledger-green' : 'text-ledger-brick'
+            }`}
         >
           {formatCurrency(summary.netBalance)}
         </p>
@@ -146,9 +144,8 @@ export default function Dashboard() {
                 <p className="text-ink-soft text-xs num">{r.date}</p>
               </div>
               <p
-                className={`num font-medium ${
-                  r.type === 'INCOME' ? 'text-ledger-green' : 'text-ledger-brick'
-                }`}
+                className={`num font-medium ${r.type === 'INCOME' ? 'text-ledger-green' : 'text-ledger-brick'
+                  }`}
               >
                 {r.type === 'INCOME' ? '△ ' : '▽ '}
                 {formatCurrency(r.amount)}

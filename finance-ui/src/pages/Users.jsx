@@ -66,11 +66,11 @@ export default function Users() {
           <table className="w-full text-sm">
             <thead>
               <tr className="hairline text-left">
-                <th className="label px-5 py-3">Name</th>
-                <th className="label px-5 py-3">Email</th>
-                <th className="label px-5 py-3">Role</th>
-                <th className="label px-5 py-3">Status</th>
-                <th className="label px-5 py-3 text-right">Actions</th>
+                <th className="th-cell px-5 py-3">Name</th>
+                <th className="th-cell px-5 py-3">Email</th>
+                <th className="th-cell px-5 py-3">Role</th>
+                <th className="th-cell px-5 py-3">Status</th>
+                <th className="th-cell px-5 py-3 text-right">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -83,9 +83,8 @@ export default function Users() {
                   </td>
                   <td className="px-5 py-3">
                     <span
-                      className={`text-xs uppercase tracking-wider ${
-                        u.status === 'ACTIVE' ? 'text-ledger-green' : 'text-ink-soft'
-                      }`}
+                      className={`text-xs uppercase tracking-wider ${u.status === 'ACTIVE' ? 'text-ledger-green' : 'text-ink-soft'
+                        }`}
                     >
                       {u.status}
                     </span>

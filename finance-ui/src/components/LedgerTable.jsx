@@ -1,5 +1,5 @@
 const formatCurrency = (n) =>
-  new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(n)
+  new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(n)
 
 export default function LedgerTable({ records, canManage, onEdit, onDelete }) {
   if (!records || records.length === 0) {
@@ -17,11 +17,11 @@ export default function LedgerTable({ records, canManage, onEdit, onDelete }) {
       <table className="w-full text-sm">
         <thead>
           <tr className="hairline text-left">
-            <th className="label px-5 py-3">Date</th>
-            <th className="label px-5 py-3">Category</th>
-            <th className="label px-5 py-3">Notes</th>
-            <th className="label px-5 py-3 text-right">Amount</th>
-            {canManage && <th className="label px-5 py-3 text-right">Actions</th>}
+            <th className="th-cell px-5 py-3">Date</th>
+            <th className="th-cell px-5 py-3">Category</th>
+            <th className="th-cell px-5 py-3">Notes</th>
+            <th className="th-cell px-5 py-3 text-right">Amount</th>
+            {canManage && <th className="th-cell px-5 py-3 text-right">Actions</th>}
           </tr>
         </thead>
         <tbody>
@@ -31,9 +31,8 @@ export default function LedgerTable({ records, canManage, onEdit, onDelete }) {
               <td className="px-5 py-3">{r.category}</td>
               <td className="px-5 py-3 text-ink-soft truncate max-w-[220px]">{r.notes || '—'}</td>
               <td
-                className={`px-5 py-3 text-right num font-medium ${
-                  r.type === 'INCOME' ? 'text-ledger-green' : 'text-ledger-brick'
-                }`}
+                className={`px-5 py-3 text-right num font-medium ${r.type === 'INCOME' ? 'text-ledger-green' : 'text-ledger-brick'
+                  }`}
               >
                 {r.type === 'INCOME' ? '△ ' : '▽ '}
                 {formatCurrency(r.amount)}
