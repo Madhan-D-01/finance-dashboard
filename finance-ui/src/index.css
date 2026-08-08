@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply antialiased;
+  }
+  body {
+    @apply bg-paper text-ink font-body;
+  }
+  :focus-visible {
+    outline: 2px solid #1F5C4E;
+    outline-offset: 2px;
+  }
+  ::selection {
+    background: #E4EEE9;
+  }
+}
+
+@layer components {
+  /* Signature element: the ledger tick — a short hairline + notch used
+     as a divider/marker across nav, cards, and table rows. */
+  .ledger-tick {
+    position: relative;
+    padding-left: 14px;
+  }
+  .ledger-tick::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 8px;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.55;
+  }
+
+  .num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+  }
+
+  .card {
+    @apply bg-surface border border-line rounded-sm;
+  }
+
+  .hairline {
+    @apply border-b border-line;
+  }
+
+  .btn-primary {
+    @apply bg-navy text-paper px-4 py-2 text-sm font-medium tracking-wide hover:bg-navy-light transition-colors rounded-sm disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply border border-line text-ink px-4 py-2 text-sm font-medium tracking-wide hover:border-ink transition-colors rounded-sm;
+  }
+
+  .input {
+    @apply w-full border border-line bg-surface px-3 py-2 text-sm rounded-sm focus:border-navy transition-colors;
+  }
+
+  .label {
+    @apply text-xs uppercase tracking-wider text-ink-soft font-medium mb-1 block;
+  }
+}
