@@ -1,13 +1,14 @@
 pipeline {
     agent any
 
-    environment {
-        DB_PASSWORD    = credentials('DB_PASSWORD')
-        JWT_SECRET     = credentials('JWT_SECRET')
-        ADMIN_EMAIL    = credentials('ADMIN_EMAIL')
-        ADMIN_PASSWORD = credentials('ADMIN_PASSWORD')
-    }
+environment {
+    DB_PASSWORD    = credentials('DB_PASSWORD')
+    JWT_SECRET     = credentials('JWT_SECRET')
+    ADMIN_EMAIL    = credentials('ADMIN_EMAIL')
+    ADMIN_PASSWORD = credentials('ADMIN_PASSWORD')
 
+    PATH+POWERSHELL = 'C:\\Windows\\System32\\WindowsPowerShell\\v1.0'
+}
     stages {
 
         stage('Checkout') {
