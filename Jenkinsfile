@@ -7,7 +7,7 @@ environment {
     ADMIN_EMAIL    = credentials('ADMIN_EMAIL')
     ADMIN_PASSWORD = credentials('ADMIN_PASSWORD')
 
-    PATH+POWERSHELL = 'C:\\Windows\\System32\\WindowsPowerShell\\v1.0'
+   
 }
     stages {
 
@@ -20,7 +20,7 @@ environment {
         stage('Backend: Build & Test') {
             steps {
                 dir('finance-dashboard') {
-                    bat 'mvnw.cmd clean verify'
+                  bat 'set "PATH=C:\\Windows\\System32\\WindowsPowerShell\\v1.0;%PATH%" && mvnw.cmd clean verify'
                 }
             }
         }
