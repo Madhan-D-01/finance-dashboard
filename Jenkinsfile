@@ -33,19 +33,18 @@ environment {
                 }
             }
         }
+stage('Docker: Build Images') {
+    steps {
+        bat 'set "PATH=C:\\Program Files\\Docker\\Docker\\resources\\bin;%PATH%" && docker compose build'
+    }
+}
 
-        stage('Docker: Build Images') {
-            steps {
-                bat 'docker compose build'
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                bat 'docker compose down'
-                bat 'docker compose up -d'
-            }
-        }
+stage('Deploy') {
+    steps {
+        bat 'set "PATH=C:\\Program Files\\Docker\\Docker\\resources\\bin;%PATH%" && docker compose down'
+        bat 'set "PATH=C:\\Program Files\\Docker\\Docker\\resources\\bin;%PATH%" && docker compose up -d'
+    }
+}
     }
 
     post {
