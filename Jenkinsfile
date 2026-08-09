@@ -19,7 +19,7 @@ pipeline {
         stage('Backend: Build & Test') {
             steps {
                 dir('finance-dashboard') {
-                    bat 'mvn clean verify'
+                    bat 'mvnw.cmd clean verify'
                 }
             }
         }
