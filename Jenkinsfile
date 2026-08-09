@@ -28,8 +28,8 @@ environment {
         stage('Frontend: Install & Build') {
             steps {
                 dir('finance-ui') {
-                    bat 'npm install'
-                    bat 'npm run build'
+                     bat 'set "PATH=C:\\Program Files\\nodejs;%PATH%" && npm install'
+            bat 'set "PATH=C:\\Program Files\\nodejs;%PATH%" && npm run build'
                 }
             }
         }
